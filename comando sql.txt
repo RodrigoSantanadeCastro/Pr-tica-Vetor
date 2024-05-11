@@ -5,3 +5,8 @@ create table Paciente(
 id_paciente INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR (30) NOT NULL,
 cpf VARCHAR (11) NOT NULL);
+
+create table fila(
+id_fila INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nomep VARCHAR (30) NOT NULL,
+preferencia VARCHAR (2)  NULL);

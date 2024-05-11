@@ -22,6 +22,8 @@ namespace FilaHospital
 
         }
 
+       
+
         public void inserirUsuario(string nome, string cpf)
         {
 

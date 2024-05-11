@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data;
 using MySql.Data.MySqlClient;
+using MySql.Data;
 
 namespace FilaHospital
 {
@@ -33,8 +33,15 @@ namespace FilaHospital
                 {
                     Cadastro cadastro = new Cadastro();
                     cadastro.Cadastrar();
-                    return;
+                    
 
+                }
+                if (controler =="2") 
+                {
+                    Fila fila = new Fila();
+                    fila.ColocarFila();
+                    
+                
                 }
 
 

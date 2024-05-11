@@ -38,8 +38,8 @@ namespace FilaHospital
             cpf = Console.ReadLine();
             sql = "insert into paciente(nome,cpf) values(@nome,@cpf)";
             cmd = new MySqlCommand(sql, connection);
-            cmd.Parameters.AddWithValue("@usuario", nome);
-            cmd.Parameters.AddWithValue("@senha", cpf);
+            cmd.Parameters.AddWithValue("@nome", nome);
+            cmd.Parameters.AddWithValue("@cpf", cpf);
 
             try
             {
@@ -59,7 +59,7 @@ namespace FilaHospital
                 Console.WriteLine("Ocorreu um erro:{0}", ex.Message);
             }
 
-            return;
+            return ;
 
         }
     }
