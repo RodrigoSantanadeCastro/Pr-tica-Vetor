@@ -104,6 +104,7 @@
     <Compile Include="Cadastro.cs" />
     <Compile Include="Dao.cs" />
     <Compile Include="Filacs.cs" />
+    <Compile Include="MostrarFila.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

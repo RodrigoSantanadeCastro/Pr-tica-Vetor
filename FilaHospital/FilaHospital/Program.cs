@@ -43,6 +43,13 @@ namespace FilaHospital
                     
                 
                 }
+                if (controler == "3")
+                {
+                    MostrarFila mostrarFila = new MostrarFila();
+                    mostrarFila.ShowFila();
+
+
+                }
 
 
 

@@ -45,6 +45,7 @@ namespace FilaHospital
             {
                 int linhasafetadas = cmd.ExecuteNonQuery();
 
+
                 if (linhasafetadas == 0)
                 {
                     throw new Exception("Nenhuma linha foi afetada pela consulta.");
