@@ -50,6 +50,13 @@ namespace FilaHospital
 
 
                 }
+                if(controler == "4")
+                {
+                    AtenderPaciente atenderPaciente = new AtenderPaciente();
+                    atenderPaciente.atender();
+
+
+                }
 
 
 

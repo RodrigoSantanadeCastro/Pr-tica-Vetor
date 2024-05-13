@@ -101,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtenderPaciente.cs" />
     <Compile Include="Cadastro.cs" />
     <Compile Include="Dao.cs" />
     <Compile Include="Filacs.cs" />

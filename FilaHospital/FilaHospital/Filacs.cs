@@ -73,22 +73,32 @@ namespace FilaHospital
         public void ColocarFila() {
             Console.WriteLine("Digite o nome do paciente que deseja colocar na fila");
             string nomep = Console.ReadLine();
+            Console.WriteLine("O paciente é preferencial ou está em estado critico ?\n se sim digite - 1");
+            int prec=int.Parse(Console.ReadLine());
+  
             Dao dao = new Dao();
             string connectionString = "Server=localhost;Port=3306;Database=Hospital;Uid=root;Pwd='';";
 
-
+            
             // Verifica se o valor existe na tabela de origem
             bool valorExiste = VerificarValorExistente(connectionString, nomep);
 
         if (valorExiste)
         {
-            // Insere o valor na tabela de destino
-            InserirValorNaTabelaDestino(connectionString, nomep);
-            Console.WriteLine($"O valor '{nomep}' foi encontrado na tabela de origem e inserido na tabela de destino.");
+                if (prec == 1) {
+                    // Insere o valor na tabela de destino
+                    InserirValorComPreferencia(connectionString, nomep, prec);
+                    Console.WriteLine($"O o cadastro do paciente '{nomep}' foi encontrado no cadastro e inserido na fila com preferencia.");
+                }
+                else
+                {
+                    InserirValorNaTabelaDestino(connectionString, nomep);
+                    Console.WriteLine($"O o cadastro do paciente '{nomep}' foi encontrado no cadastro e inserido na fila.");
+                }
         }
         else
         {
-            Console.WriteLine($"O valor '{nomep}' não foi encontrado na tabela de origem.");
+            Console.WriteLine($"O o cadastro do paciente '{nomep}' não foi encontrado.");
         }
         }
 
@@ -120,6 +130,22 @@ namespace FilaHospital
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@nomep", nomep);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        static void InserirValorComPreferencia(string connectionString, string nomep, int prec)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "INSERT INTO fila (nomep,preferencia) VALUES (@nomep,@prec)";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@nomep", nomep);
+                    command.Parameters.AddWithValue("@prec",  prec);
                     command.ExecuteNonQuery();
                 }
             }
